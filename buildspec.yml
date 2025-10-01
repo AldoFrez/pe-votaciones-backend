@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo "Logueando en Amazon ECR..."
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
       - echo "Construyendo imágenes Docker..."
@@ -15,21 +15,21 @@ phases:
       - docker build -t servicio-eureka-server ./servicio-eureka-server
       - docker build -t servicio-gateway-server ./servicio-gateway-server
       - echo "Taggeando imágenes..."
-      - docker tag servicio-alternativas:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-alternativas:latest
-      - docker tag servicio-boletas:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-boletas:latest
-      - docker tag servicio-commons:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-commons:latest
-      - docker tag servicio-consultas:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-consultas:latest
-      - docker tag servicio-eureka-server:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-eureka-server:latest
-      - docker tag servicio-gateway-server:latest <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-gateway-server:latest
+      - docker tag servicio-alternativas:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-alternativas:latest
+      - docker tag servicio-boletas:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-boletas:latest
+      - docker tag servicio-commons:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-commons:latest
+      - docker tag servicio-consultas:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-consultas:latest
+      - docker tag servicio-eureka-server:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-eureka-server:latest
+      - docker tag servicio-gateway-server:latest 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-gateway-server:latest
   post_build:
     commands:
       - echo "Subiendo imágenes a ECR..."
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-alternativas:latest
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-boletas:latest
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-commons:latest
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-consultas:latest
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-eureka-server:latest
-      - docker push <303352205147>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-gateway-server:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-alternativas:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-boletas:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-commons:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-consultas:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-eureka-server:latest
+      - docker push 303352205147.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/servicio-gateway-server:latest
 
 artifacts:
   files: '**/*'
